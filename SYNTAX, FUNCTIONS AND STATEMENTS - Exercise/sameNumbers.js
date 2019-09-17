@@ -15,9 +15,8 @@ function solve(num) {
 }
 
 solve(2222222);
+// true
+// 14
 solve(1234);
-solve(3322);
-solve(2223);
-solve(3222);
-solve(3323);
-solve(3233);
+// false
+// 10

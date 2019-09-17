@@ -1,12 +1,15 @@
 function solve(x, y) {
-    var gcd = function (a, b) {
-        if (!b) {
-            return a;
-        }
-        return gcd(b, a % b);
+
+    while (y != 0)
+    {
+        let old = y;
+        y = x % y;
+        x = old;
     }
-    console.log(gcd(x, y))
+    console.log(Math.max(x,y));
 }
 
-solve(15, 5);//5
-solve(2154, 458);//2
+solve(15, 5);
+// 5
+solve(2154, 458);
+// 2
