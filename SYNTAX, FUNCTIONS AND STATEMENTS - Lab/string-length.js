@@ -1,12 +1,14 @@
 function solve(x, y, z) {
-    let sumLenght = x.lenght + y.lenght + z.lenght;
-    let avrgLenght = Math.floor(sumLenght / 3);
+    let sumLength = x.length + y.length + z.length;
+    let avrgLength = Math.floor(sumLength / 3);
 
-    console.log(sumLenght);
-    console.log(avrgLenght);
-
+    console.log(sumLength);
+    console.log(avrgLength);
 }
 
-console.log(
-    solve('chocolate', 'ice cream', 'cake')
-)
+solve('chocolate', 'ice cream', 'cake')
+//22
+//7
+solve('pasta', '5', '22.3')
+//10
+// 3
