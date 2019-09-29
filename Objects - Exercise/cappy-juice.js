@@ -1,22 +1,25 @@
-function solve(array) {
-    let juices = array
-        .reduce((juices, currentJuice) => {
-            let [juice, quantity] = currentJuice.split(" => ");
-            juices[juice] ? juices[juice] += Number(quantity) : juices[juice] = Number(quantity);
-            return juices;
-        }, []);
+function solve(input) {
+    let quantities = {};
+    let bottles = {};
 
-    let result = Object.entries(juices).reduce((juices, currentJuice) => {
-        let value = Math.trunc(currentJuice[1] / 1000);
-        value ? juices[currentJuice[0]] = value : null;
-        return juices;
-    }, []);
+    for (let line of input) {
+        let [fruit, quantity] = line.split(" => ");
 
+        if (!quantities.hasOwnProperty(fruit)) {
+            quantities[fruit] = 0;
+        }
 
-    console.log(result);
+        quantities[fruit] += Number(quantity);
+        if (quantities[fruit] >= 1000) {
+            bottles[fruit] = parseInt(quantities[fruit] / 1000);
+        }
+    }
+
+    for (let key of Object.keys(bottles)) {
+        console.log(`${key} => ${bottles[key]}`);
+    }
 }
 
-//var obj = {id: 1, name: "Test object"}
 solve(
     ['Orange => 2000',
         'Peach => 1432',
@@ -24,6 +27,8 @@ solve(
         'Peach => 600',
         'Strawberry => 549']
 );
+// Orange => 2
+// Peach => 2
 
 solve(['Kiwi => 234',
     'Pear => 2345',
@@ -31,4 +36,7 @@ solve(['Kiwi => 234',
     'Kiwi => 4567',
     'Pear => 5678',
     'Watermelon => 6789']
-)
+);
+// Pear => 8
+// Watermelon => 10
+// Kiwi => 4
