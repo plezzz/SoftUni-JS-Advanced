@@ -1,0 +1,15 @@
+function solve() {
+    const sendBtn = document.getElementById('send');
+    const message = document.getElementById('chat_input');
+    sendBtn.addEventListener('click', sendMessage);
+
+    function sendMessage() {
+        let newMessage = document.createElement('div');
+        newMessage.classList.add('message', 'my-message');
+        newMessage.textContent = message.value;
+        document.getElementById('chat_messages').appendChild(newMessage);
+        message.value = '';
+    }
+}
+
+
